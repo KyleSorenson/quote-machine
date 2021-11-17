@@ -17,7 +17,7 @@ function QuoteBox(props) {
       <div id="text"><h1>"{props.quote}"</h1></div>
       <div id="author">~{props.author}</div>
       <button id="new-quote">New Quote</button>
-      <a id="tweet-quote" href="">Tweet Quote</a>
+      <a id="tweet-quote" href="kylesorensonmusic.com">Tweet Quote</a>
     </div>
   );
 }

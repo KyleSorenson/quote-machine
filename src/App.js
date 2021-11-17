@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+
+const QUOTES = [
+  { 
+    quote: "I Came. I Saw. I Conquered.",
+    author: "Julius Caesar" 
+  },
+  { 
+    quote: "To be or not to be? That is the question.",
+    author: "William Shakespeare" 
+  },
+]
+
+function QuoteBox(props) {
+  return(
+    <div id="quote-box">
+      <div id="text"><h1>"{props.quote}"</h1></div>
+      <div id="author">~{props.author}</div>
+      <button id="new-quote">New Quote</button>
+      <a id="tweet-quote" href="">Tweet Quote</a>
+    </div>
+  );
+}
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QuoteBox 
+      quote={QUOTES[0].quote}
+      author={QUOTES[0].author}/>
   );
 }
 

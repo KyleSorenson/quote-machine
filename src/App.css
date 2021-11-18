@@ -16,15 +16,11 @@ a:hover {
 
 #quote-box {
   padding: 30px;
-  height: 250px;
   background: #333;
-  flex-basis: 200px;
-  flex-grow: 1;
   border-radius: 15px;
-  display: flex;
   align-items: center;
-  color: #FFF;
 }
+
 #quote-box:hover {
   animation: buttonhighlight 1s;
   animation-fill-mode: forwards;

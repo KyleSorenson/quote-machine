@@ -25,9 +25,11 @@ function QuoteBox(props) {
 
 function App() {
   return (
-    <QuoteBox 
-      quote={QUOTES[0].quote}
-      author={QUOTES[0].author}/>
+    <div id="container">
+      <QuoteBox 
+        quote={QUOTES[0].quote}
+        author={QUOTES[0].author}/>
+    </div>  
   );
 }
 

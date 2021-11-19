@@ -2,39 +2,64 @@ body {
   margin: 0;
   background-color: #282c34;
   color: #888;
-  font-family: Oswald, sans-serif;
-  font-weight: 200;
+  font-family: 'Crimson Pro', serif;
+  font-weight: 400;
+}
+
+button {
+  border-style: none;
+  background-color: #282c34;
+  color:rgb(241, 243, 226);
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-family: 'Crimson Pro', serif;
+  font-size: 15px;
+}
+
+button:hover {
+  background-color: #4c5463;
 }
 
 a {
-  color: #BBB;
   text-decoration: none;
+  color: #282c34;
 }
+
 a:hover {
-  color: #DDD;
+  color: #4c5463;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 #quote-box {
-  padding: 30px;
-  background: #333;
+  background-color:rgb(241, 243, 226);
+  padding: 40px 40px 20px 40px;
   border-radius: 15px;
-  align-items: center;
+  max-width: 50vw;
+  color: #575f70;
 }
 
-#quote-box:hover {
-  animation: buttonhighlight 1s;
-  animation-fill-mode: forwards;
-  color: #222;
+#quote {
+  text-align: left;
+  font-weight: 400;
+  font-style: italic;
+  margin: 5px 0 20px 0;
 }
 
-@keyframes buttonhighlight {
-  0% {
-    background: #222;
-  }
-  10% {
-    background: #85fff9;
-  }
-  100% {
-    background: #ff90f3;
-  }
+#author {
+  text-align: left;
+  margin: 0 0 60px 0;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+#links {
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-end;
 }

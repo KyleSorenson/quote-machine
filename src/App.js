@@ -37,7 +37,8 @@ class QuoteBox extends React.Component {
               ' -' + 
               QUOTES[this.state.quoteIndex].author
             }
-            target="_blank">
+            target="_blank"
+            rel="noreferrer">
               Tweet Quote
           </a>
         </div>
@@ -55,6 +56,3 @@ function App() {
 }
 
 export default App;
-
-
-//https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=%22Eighty%20percent%20of%20success%20is%20showing%20up.%22%20Woody%20Allen

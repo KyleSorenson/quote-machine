@@ -1,10 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import './bottombar.styles.css';
 
-export const BottomBar = ({quotes, quoteIndex, handleClick}) => {
+export const BottomBar = ({handleClick}) => {
   
-  const { quote, author } = quotes[quoteIndex]; // Features to implement: source, speaker, tags, topic
-
   return (
     <div class="bottombar">
       <button

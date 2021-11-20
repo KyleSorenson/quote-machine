@@ -1,7 +1,8 @@
-- Refactor app architecture into components
+x Refactor app architecture into components
 - Improv the visual design
 - Add css animation
-- Add media queries that allow site to diplay well on phones
+- Clean up quotes
+x Add media queries that allow site to display well on phones
 - Add support for quote source
 - Add support for quote topic
 - Add support for tags

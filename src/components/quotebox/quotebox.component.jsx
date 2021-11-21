@@ -27,28 +27,44 @@ export class QuoteBox extends Component {
 
   render() {
 
-    const { quote, author } = this.props.quotes[this.state.quoteIndex]; // Features to implement: source, speaker, tags, topic
+    const { quote, author, speaker, source } = this.props.quotes[this.state.quoteIndex]; // Features to implement: source, speaker, tags, topic
 
     return (
-      <div className="quote-box">
-        <div className="text">
-          <h1 className="quote">{quote}</h1>
-        </div>
-        <div className="quote-functions">
-          <a href={`http://twitter.com/intent/tweet?text=${quote} ${author}`}
+      <blockquote className="blockquote">
+        <hr className="blockquote-divider"/>
+        <section className="blockquote-body">
+          <span className="blockquote-quotation-mark">&#8220;</span>
+          <span className="blockquote-text">{quote}</span>
+        </section>
+        <footer className="blockquote-footer">
+          {/* <a href={`http://twitter.com/intent/tweet?text=${quote} ${author}`}
             className="tweet-quote"
             target="_blank"
             rel="noreferrer">
-            <i class="fab fa-twitter"></i>
-          </a>
-          {author && <span className="author">~ {author}</span>}
-        </div>
+            <i className="fab fa-twitter"></i>
+          </a> */}
+          { 
+            speaker ? 
+            <span className="author">– {speaker}</span> :
+            author ? 
+            <span className="author">– {author}</span> : 
+            ""
+          }
+          {
+            source && (author || speaker) ? 
+            <span className="author">, <em>{source}</em></span> :
+            source ? 
+            <span className="author">— {source}</span> :
+            ""
+          }
+        </footer>
+        <hr className="blockquote-divider"/>
         {this.props.bottombar &&
         <BottomBar
           quotes={this.props.quotes}
           quoteIndex = {this.state.quoteIndex}
           handleClick={this.handleClick} />}
-      </div>
+      </blockquote>
     );
   }
 };

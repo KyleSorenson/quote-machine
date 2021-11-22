@@ -4,26 +4,29 @@
   box-sizing: border-box;
 }
 
-body {
+html {
+  font-size: 10px;
+}
+
+body, input, textarea, button {
   font-family: 'EB Garamond', serif;
   font-weight: 400;
-  font-size: 30px;
+}
+
+@media(max-width: 600px) {
+  html{
+    font-size: 8px;
+  }
+}
+
+body {
   color: #888;
   background-color: #282c34;
-}
-
-a {
-  text-decoration: none;
-  color: #888;
-}
-
-a:hover {
-  color: #4c5463;
 }
 
 #container {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 4rem;
 }
 

@@ -1,42 +1,96 @@
 .blockquote {
-  margin-top: 60px;
+  margin-top: 6rem;
   max-width: 80vw;
+}
+
+@media(max-width: 600px) {
+  .blockquote {
+    margin-top: 0;
+    max-width: 100vw;
+  }
 }
 
 .blockquote-divider {
   margin: auto;
   border: none;
-  border-top: 1px solid #666;
+  border-top: .1rem solid #666;
   width: 100%;
-  animation: blockquote-divider-in 2s ease-out;
+  animation: blockquote-divider-in 1s ease-out 1s backwards;
 }
 
 .blockquote-body {
-  margin-top: 30px;
+  margin-top: 6rem;
   display: flex;
-  gap: 5px;
+  gap: .5rem;
   animation: blockquote-in 1s ease-out;
 }
 
-.blockquote-quotation-mark {
-  font-size: 50px;
-  transform: translateY(-10px);
-  height: 10px;
+.blockquote-text {
+  font-size: 3rem;
 }
 
-.blockquote-text {
+.blockquote-quotation-mark {
+  font-size: 5rem;
+  transform: translateY(-1rem);
+  height: 1rem;
+}
 
+.blockquote-attribution {
+  margin: 3rem 0 4rem;
+  display: flex;
+  gap: .8rem;
+  font-size: 2rem;
+  font-weight: 400;
+  animation: blockquote-attribution-in 1s ease-out .5s backwards;
 }
 
 .blockquote-footer {
-  margin: 20px 0 40px;
-  transform: translateX(12px);
-  /* display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between; */
-  font-size: 20px;
-  font-weight: 400;
-  animation: blockquote-footer-in 1s ease-out .5s backwards;
+  position: relative;
+}
+
+/* $divider-height: 4rem; */
+
+.blockquote-footer-container-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  height: 4rem; /* $divider-height */
+}
+
+.blockquote-footer-container-bottom {
+  width: 100%;
+  height: 4rem; /* $divider-height */
+  position: absolute;
+  top: 2rem; /* $divider-height divided by 2 */
+}
+
+.blockquote-footer-elements {
+  animation: blockquote-footer-elements-in .5s ease-out .5s backwards;
+}
+
+.blockquote-footer-button {
+  display: block;
+  height: 4rem; /* $divider-height */
+  padding: .3rem 2rem;
+  margin: 0 .5rem;
+  color: #888;
+  background-color: #282c34;
+  border-radius: 10rem;
+  border: .1rem solid #666;
+  font-size: 2rem;
+  transition: background-color .5s, transform .5s;
+}
+
+.blockquote-footer-button:hover {
+  background-color: hsl(220, 13%, 22%);
+  cursor: pointer;
+  transform: scale(1.05,1.05);
+}
+
+.twitter-icon {
+  transform: translateY(.3rem);
 }
 
 @keyframes blockquote-divider-in {
@@ -55,19 +109,29 @@
 @keyframes blockquote-in {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(2rem);
   } 
   100% {
     opacity: 1;
   } 
 }
 
-@keyframes blockquote-footer-in {
+@keyframes blockquote-attribution-in {
   0% {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateX(-2rem);
   }
   100% {
     opacity: 1;
   }
 }
+
+@keyframes blockquote-footer-elements-in {
+  0% {
+    opacity: 0;
+  } 
+  100% {
+    opacity: 1;
+  } 
+}
+

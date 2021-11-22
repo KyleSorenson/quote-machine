@@ -1,11 +1,10 @@
-x Refactor app architecture into components
-- Improv the visual design
-- Add css animation
+- Refactor app architecture into components
+- Add text transitions
+- Add SCSS support / refactor styles
+- Add color / button height variables to styles
+- Rename styles according to BEM model
 - Clean up quotes
-x Add media queries that allow site to display well on phones
-- Add support for quote source
-- Add support for quote topic
 - Add support for tags
-- Add deep links
+- Add support for deep links
 - Add filter / search capability
 - Add the ability to display quote lists

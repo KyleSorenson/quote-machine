@@ -27,7 +27,7 @@ export class QuoteBox extends Component {
 
   render() {
 
-    const { quote, author, speaker, source } = this.props.quotes[this.state.quoteIndex]; // Features to implement: source, speaker, tags, topic
+    const { quote, author, speaker, source, topic } = this.props.quotes[this.state.quoteIndex]; // Features to implement: source, speaker, tags, topic
 
     return (
       <blockquote className="blockquote">
@@ -36,29 +36,70 @@ export class QuoteBox extends Component {
           <span className="blockquote-quotation-mark">&#8220;</span>
           <span className="blockquote-text">{quote}</span>
         </section>
-        <footer className="blockquote-footer">
+        <section className="blockquote-attribution">
           {/* <a href={`http://twitter.com/intent/tweet?text=${quote} ${author}`}
             className="tweet-quote"
             target="_blank"
             rel="noreferrer">
             <i className="fab fa-twitter"></i>
           </a> */}
-          { 
-            speaker ? 
-            <span className="author">– {speaker}</span> :
-            author ? 
-            <span className="author">– {author}</span> : 
-            ""
-          }
-          {
-            source && (author || speaker) ? 
-            <span className="author">, <em>{source}</em></span> :
-            source ? 
-            <span className="author">— {source}</span> :
-            ""
-          }
+          <span className="blockquote-attribution-dash">
+            {
+              (speaker || author || topic || source) && 
+                <> 
+                  —
+                </>
+            }
+          </span>
+          <span className="blockquote-attribution-source">
+            { 
+              speaker ? 
+                <> 
+                  {speaker} 
+                </>
+                : author ? 
+                  <> 
+                    {author} 
+                  </>
+                  : ""
+            }
+            {
+              topic && (author || speaker) ?
+                  <>
+                    &nbsp;on {topic}
+                  </>
+                : topic ?
+                  <>
+                    {topic}
+                  </> 
+                  : ""
+            }
+            {
+              source && (author || speaker || topic) ? 
+                <> 
+                  , <em>{source}</em> 
+                </> :
+                source ? 
+                  <> 
+                    {source} 
+                  </>
+                  : ""
+            }
+          </span>
+        </section>
+        <footer className="blockquote-footer">
+          <div className="blockquote-footer-elements-top">
+            <button 
+              className="blockquote-footer-button" 
+              value="generateRandomIndex"
+              onClick={this.handleClick}>
+              New Quote
+            </button>
+          </div>
+          <div className="blockquote-footer-elements-bottom">
+            <hr className="blockquote-divider"/>
+          </div>
         </footer>
-        <hr className="blockquote-divider"/>
         {this.props.bottombar &&
         <BottomBar
           quotes={this.props.quotes}

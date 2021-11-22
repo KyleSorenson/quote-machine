@@ -6,7 +6,7 @@ export class QuoteBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quoteIndex: this.props.quoteIndex,
+      quoteIndex: this.props.quoteIndex
     };
   }
 
@@ -17,7 +17,7 @@ export class QuoteBox extends Component {
         this.setState((state) => ({
           quoteIndex: this.props.handlers.generateRandomIndex(this.props.quotes)
         }));
-        break;
+        break
       default:
         this.setState({
           quoteIndex: 0
@@ -27,22 +27,43 @@ export class QuoteBox extends Component {
 
   render() {
 
-    const { quote, author, speaker, source, topic } = this.props.quotes[this.state.quoteIndex]; // Features to implement: source, speaker, tags, topic
+    const { quote, author, speaker, source, topic } = this.props.quotes[this.state.quoteIndex]; // Features to implement: tags
 
     return (
       <blockquote className="blockquote">
-        <hr className="blockquote-divider"/>
+
+
+        {/* Component Candidate (Footer Parody / Rename Styles)*/}
+        <header className="blockquote-footer">
+          <div className="blockquote-footer-container-top">
+            
+
+            {/* Component Candidate */}
+            <div className="blockquote-footer-elements">
+              <a href={`http://twitter.com/intent/tweet?text=${quote} ${author}`}
+                className="blockquote-footer-button"
+                target="_blank"
+                rel="noreferrer"> 
+                <i className="fab fa-twitter twitter-icon"></i>
+              </a>
+            </div>
+
+
+          </div>
+          <div className="blockquote-footer-container-bottom">
+            <hr className="blockquote-divider"/>
+          </div>
+        </header>
+
+
         <section className="blockquote-body">
           <span className="blockquote-quotation-mark">&#8220;</span>
           <span className="blockquote-text">{quote}</span>
         </section>
+
+
+        {/* Component Candidate - Don't Render When There's No Speaker / Author / Topic, etc...*/}
         <section className="blockquote-attribution">
-          {/* <a href={`http://twitter.com/intent/tweet?text=${quote} ${author}`}
-            className="tweet-quote"
-            target="_blank"
-            rel="noreferrer">
-            <i className="fab fa-twitter"></i>
-          </a> */}
           <span className="blockquote-attribution-dash">
             {
               (speaker || author || topic || source) && 
@@ -87,19 +108,29 @@ export class QuoteBox extends Component {
             }
           </span>
         </section>
+
+
+        {/* Component Candidate (Header Parody / Rename Styles)*/}
         <footer className="blockquote-footer">
-          <div className="blockquote-footer-elements-top">
-            <button 
-              className="blockquote-footer-button" 
-              value="generateRandomIndex"
-              onClick={this.handleClick}>
-              New Quote
-            </button>
+          <div className="blockquote-footer-container-top">
+
+
+            {/* Component Candidate */}
+            <div className="blockquote-footer-elements">
+              <button 
+                className="blockquote-footer-button" 
+                value="generateRandomIndex"
+                onClick={this.handleClick}>
+                New Quote
+              </button>
+            </div>
+
           </div>
-          <div className="blockquote-footer-elements-bottom">
+          <div className="blockquote-footer-container-bottom">
             <hr className="blockquote-divider"/>
           </div>
         </footer>
+
         {this.props.bottombar &&
         <BottomBar
           quotes={this.props.quotes}

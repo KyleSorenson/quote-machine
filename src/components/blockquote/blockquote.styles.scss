@@ -1,0 +1,54 @@
+@mixin quote-transition {
+  transition: all .5s;
+}
+
+.blockquote {
+  margin-top: 6rem;
+  max-width: 80vw;
+  
+  &-body {
+    margin-top: 6rem;
+    display: flex;
+    gap: .5rem;
+    animation: blockquote--in 1s ease-out;
+    
+    &__text {
+      font-size: 3rem;
+      @include quote-transition;
+    }
+    
+    &__quotation-mark {
+      font-size: 5rem;
+      transform: translateY(-1rem);
+      height: 1rem;
+      @include quote-transition;
+    }
+  }
+}
+
+@media(max-width: 600px) {
+  .blockquote {
+    margin-top: 0;
+    max-width: 100vw;
+  }
+}
+
+@keyframes blockquote--in {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem);
+  } 
+  100% {
+    opacity: 1;
+  } 
+}
+
+@keyframes blockquote-footer--in {
+  0% {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+  100% {
+    opacity: 1;
+  }
+}

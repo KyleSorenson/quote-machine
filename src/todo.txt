@@ -1,8 +1,9 @@
-- Refactor app architecture into components
-- Add text transitions
-- Add SCSS support / refactor styles
-- Add color / button height variables to styles
-- Rename styles according to BEM model
+X Refactor app architecture into components
+X Add text transitions
+X Add SCSS support / refactor styles
+X Add color / button height variables to styles
+X Rename styles according to BEM model
+X Conditionally display footer
 - Clean up quotes
 - Add support for tags
 - Add support for deep links

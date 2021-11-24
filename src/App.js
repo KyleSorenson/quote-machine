@@ -2,12 +2,7 @@ import React from 'react';
 import './App.scss';
 import { BlockQuote } from './components/blockquote/blockquote.component.jsx';
 
-const quotes = require('./quotes.json');
-const handlers = {
-  generateRandomIndex: function(arr) {
-    return Math.floor(Math.random() * (arr.length))
-  }
-};
+const KylesQuoteCollection = require('./quotes.json');
 
 const fccProjectURL = "https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-random-quote-machine";
 const fccCurriculumURL = "https://www.freecodecamp.org/learn/front-end-development-libraries";
@@ -20,9 +15,7 @@ function App() {
         <span className="heading__sub"><a href={fccProjectURL}>Project 1</a> from Free Code Camp's <a href={fccCurriculumURL}>Front End Development Libraries Curriculum</a></span>
       </header>
       <BlockQuote 
-        quotes={quotes} 
-        quoteIndex={handlers.generateRandomIndex(quotes)} 
-        handlers={handlers}
+        quotes={KylesQuoteCollection} 
         buttons={true}/>
       <footer className="footer">
         <span>Built Using</span> 

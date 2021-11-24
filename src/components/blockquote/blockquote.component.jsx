@@ -3,27 +3,31 @@ import './blockquote.styles.scss';
 import { Divider } from "../divider/divider.component";
 import { BlockQuoteFooter } from "../blockquotefooter/blockquotefooter.component";
 
+const generateRandomIndex = (arr) => {
+  return Math.floor(Math.random() * (arr.length))
+}
+
 export class BlockQuote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quoteIndex: this.props.quoteIndex,
-      visible: 1
+      quoteIndex: generateRandomIndex(this.props.quotes),
+      quoteOpacity: 1
     };
   }
 
-  generateRandomIndex = () => {
+  transitionToRandomQuote = () => {
     this.setState({
-      visible: 0
+      quoteOpacity: 0
     });
     setTimeout(()=>{
       this.setState({
-        quoteIndex: this.props.handlers.generateRandomIndex(this.props.quotes)
+        quoteIndex: generateRandomIndex(this.props.quotes)
       });
     },500);
     setTimeout(()=>{
       this.setState({
-        visible: 1
+        quoteOpacity: 1
       });
     },550);
   }
@@ -45,21 +49,24 @@ export class BlockQuote extends Component {
         </Divider>
 
         <section className="blockquote-body">
-          <span className="blockquote-body__quotation-mark" style={{opacity: this.state.visible}}>&#8220;</span>
-          <span className="blockquote-body__text" style={{opacity: this.state.visible}}>{quote}</span>
+          <span className="blockquote-body__quotation-mark" style={{opacity: this.state.quoteOpacity}}>&#8220;</span>
+          <span className="blockquote-body__text" style={{opacity: this.state.quoteOpacity}}>{quote}</span>
         </section>
 
-        <BlockQuoteFooter 
+        { (speaker || author || topic || source) && <BlockQuoteFooter 
           speaker={speaker}
           author={author}
           topic={topic}
           source={source}
-          visible={this.state.visible}/>
+          quoteOpacity={this.state.quoteOpacity}
+          /> }
+
+        <div className="blockquote__spacer"></div>
 
         <Divider buttons={this.props.buttons}>
           <button 
             className="button-bar__button button-bar__button--hover" 
-            onClick={this.generateRandomIndex}>
+            onClick={this.transitionToRandomQuote}>
               New Quote
           </button>
         </Divider>

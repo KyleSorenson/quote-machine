@@ -9,3 +9,4 @@ X Conditionally display footer
 - Add support for deep links
 - Add filter / search capability
 - Add the ability to display quote lists
+- Blockquote Pseudo-elements (Open quote and hypen)

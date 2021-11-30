@@ -5,13 +5,37 @@ import { BlockQuoteFooter } from "../blockquotefooter/blockquotefooter.component
 
 const generateRandomIndex = (arr) => {
   return Math.floor(Math.random() * (arr.length))
-}
+};
+
+const makeURLString = (collection, index) => {
+  return collection[index].quote.toLowerCase()
+  .split(' ').slice(0,4)
+  .map(word => word.match(/[a-z]+/g).join(''))
+  .join('-');
+};
+
+const getIndexFromURL = (collection, url) => {
+  for (let i = 0; i < collection.length; i++) {
+    let quote = collection[i].quote.toLowerCase()
+      .split(' ').slice(0,4)
+      .map(word => word.match(/[a-z]+/g).join(''))
+      .join('-');
+    if ( quote === url) {
+      return i
+    }    
+  }
+};
+
+const test1 = "what-is-now-proved";
+const test2 = "if-one-could-only";
+const test3 = "kate-gomperts-always-thought";
 
 export class BlockQuote extends Component {
   constructor(props) {
     super(props);
     this.state = {
       quoteIndex: generateRandomIndex(this.props.quotes),
+      quoteURL: '',
       quoteOpacity: 1
     };
   }

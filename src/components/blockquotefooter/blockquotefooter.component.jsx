@@ -4,7 +4,7 @@ import './blockquotefooter.styles.scss';
 export const BlockQuoteFooter = ({speaker, author, topic, source, quoteOpacity}) => {
   
   return (
-    <section className="blockquote-footer" style={{opacity: quoteOpacity}}>
+    <section className="blockquote-footer" id="author" style={{opacity: quoteOpacity}}>
       <span className="blockquote-footer__dash">
         {
           (speaker || author || topic || source) && 

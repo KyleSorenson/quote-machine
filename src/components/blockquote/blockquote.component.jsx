@@ -37,11 +37,12 @@ export class BlockQuote extends Component {
     const { quote, author, speaker, source, topic } = this.props.quotes[this.state.quoteIndex]; // Features to implement: tags
 
     return (
-      <blockquote className="blockquote">
+      <blockquote className="blockquote" id="quote-box">
 
         <Divider buttons={this.props.buttons}>
           <a href={`http://twitter.com/intent/tweet?text=${quote} ${author}`}
             className="button-bar__button button-bar__button--hover"
+            id="tweet-quote"
             target="_blank"
             rel="noreferrer"> 
               <i className="fab fa-twitter button-bar__button--twitter-icon"></i>
@@ -50,7 +51,7 @@ export class BlockQuote extends Component {
 
         <section className="blockquote-body">
           <span className="blockquote-body__quotation-mark" style={{opacity: this.state.quoteOpacity}}>&#8220;</span>
-          <span className="blockquote-body__text" style={{opacity: this.state.quoteOpacity}}>{quote}</span>
+          <span className="blockquote-body__text" id="text" style={{opacity: this.state.quoteOpacity}}>{quote}</span>
         </section>
 
         { (speaker || author || topic || source) && <BlockQuoteFooter 
@@ -65,7 +66,8 @@ export class BlockQuote extends Component {
 
         <Divider buttons={this.props.buttons}>
           <button 
-            className="button-bar__button button-bar__button--hover" 
+            className="button-bar__button button-bar__button--hover"
+            id="new-quote" 
             onClick={this.transitionToRandomQuote}>
               New Quote
           </button>

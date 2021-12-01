@@ -30,7 +30,6 @@ const getIndexFromURL = (collection, url) => {
 export const BlockQuote = ({ quotes, buttons, landing }) => {
 
   const match = useParams();
-  console.log(match.excerpt);
   const [quoteIndex, setQuoteIndex] = useState(getIndexFromURL(quotes, match.excerpt));
   const [quoteOpacity, setQuoteOpacity] = useState('1');
   const { quote, author, speaker, source, topic } = quotes[quoteIndex];
@@ -81,7 +80,7 @@ export const BlockQuote = ({ quotes, buttons, landing }) => {
           id="new-quote" 
           onClick={transitionToRandomQuote}
           to={`/${nextQuote}`}>
-            New Quote
+            <span className="button-bar__button--innertext">New Quote</span>
         </Link>
       </Divider>
 

@@ -1,6 +1,8 @@
 import React from 'react';
+import { Routes, Route } from "react-router";
 import './App.scss';
 import { BlockQuote } from './components/blockquote/blockquote.component.jsx';
+import { BlockQuoteHome } from './components/blockquote-home/blockquote-home.component.jsx';
 
 const KylesQuoteCollection = require('./quotes.json');
 
@@ -14,9 +16,14 @@ function App() {
         <h1 className="heading__main">Random Quote Machine</h1>
         <span className="heading__sub"><a href={fccProjectURL}>Project 1</a> from Free Code Camp's <a href={fccCurriculumURL}>Front End Development Libraries Curriculum</a></span>
       </header>
-      <BlockQuote 
-        quotes={KylesQuoteCollection} 
-        buttons={true}/>
+      <Routes>
+        <Route path='/' element={<BlockQuoteHome 
+          quotes={KylesQuoteCollection} 
+          buttons={true}/>} />
+        <Route path='/:excerpt' element={<BlockQuote 
+          quotes={KylesQuoteCollection} 
+          buttons={true}/>} />
+      </Routes>
       <footer className="footer">
         <span>Built Using</span> 
         <a href="https://reactjs.org" target="_top" className="footerlink react"><i className="fab fa-react"></i></a>

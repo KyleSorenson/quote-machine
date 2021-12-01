@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import '../blockquote/blockquote.styles.scss';
 import { Divider } from "../divider/divider.component";
 import { BlockQuoteFooter } from "../blockquotefooter/blockquotefooter.component";
@@ -13,18 +13,6 @@ const makeURLString = (collection, index) => {
   .split(' ').slice(0,4)
   .map(word => word.match(/[a-z]+/g).join(''))
   .join('-');
-};
-
-const getIndexFromURL = (collection, url) => {
-  for (let i = 0; i < collection.length; i++) {
-    let quote = collection[i].quote.toLowerCase()
-      .split(' ').slice(0,4)
-      .map(word => word.match(/[a-z]+/g).join(''))
-      .join('-');
-    if ( quote === url) {
-      return i
-    }    
-  }
 };
 
 export const BlockQuoteHome = ({ quotes, buttons }) => {

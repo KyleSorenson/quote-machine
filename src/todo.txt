@@ -1,12 +1,9 @@
-X Refactor app architecture into components
-X Add text transitions
-X Add SCSS support / refactor styles
-X Add color / button height variables to styles
-X Rename styles according to BEM model
-X Conditionally display footer
-- Clean up quotes
-- Add support for tags
-- Add support for deep links
+- Replace missing characters in quotes.json
+- Cull quotes.json to only include shorter quotes
+- Improve routing and page refreshing ->
+    how to have a component render differently based on if a url parameter is present or not.
+    (remove the current need for "blockquote-home")
+- Make a 404 error page
 - Add filter / search capability
 - Add the ability to display quote lists
-- Blockquote Pseudo-elements (Open quote and hypen)
+- Replace open quote and source hyphen with css pseudo-elements

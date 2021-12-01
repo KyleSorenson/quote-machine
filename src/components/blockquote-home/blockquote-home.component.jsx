@@ -65,7 +65,7 @@ export const BlockQuoteHome = ({ quotes, buttons }) => {
           id="new-quote" 
           onClick={transitionToRandomQuote}
           to={`/${makeURLString(quotes, generateRandomIndex(quotes))}`}>
-            New Quote
+            <span className="button-bar__button--innertext">New Quote</span>
         </Link>
       </Divider>
 

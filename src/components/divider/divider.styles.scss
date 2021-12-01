@@ -17,6 +17,7 @@ $divider-height: 4rem;
   }
   
   &__button--hover:hover {
+    text-decoration: none;
     background-color: hsl(220, 13%, 22%);
     cursor: pointer;
     transform: scale(1.05,1.05);
@@ -44,6 +45,11 @@ $divider-height: 4rem;
   
   &__button--twitter-icon {
     transform: translateY(.3rem);
+  }
+
+  &__button--innertext {
+    display: block;
+    transform: translateY(.2rem);
   }
 }
 

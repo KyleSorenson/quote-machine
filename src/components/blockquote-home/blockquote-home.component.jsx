@@ -17,7 +17,6 @@ const makeURLString = (collection, index) => {
 
 export const BlockQuoteHome = ({ quotes, buttons }) => {
 
-  console.log("I'm the home page")
   const [quoteIndex, setQuoteIndex] = useState(generateRandomIndex(quotes));
   const [quoteOpacity, setQuoteOpacity] = useState('1');
   const { quote, author, speaker, source, topic } = quotes[quoteIndex];

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import './blockquote.styles.scss';
+import '../blockquote/blockquote.styles.scss';
 import { Divider } from "../divider/divider.component";
 import { BlockQuoteFooter } from "../blockquotefooter/blockquotefooter.component";
 
@@ -27,20 +27,17 @@ const getIndexFromURL = (collection, url) => {
   }
 };
 
-export const BlockQuote = ({ quotes, buttons, landing }) => {
+export const BlockQuoteHome = ({ quotes, buttons }) => {
 
-  const match = useParams();
-  console.log(match.excerpt);
-  const [quoteIndex, setQuoteIndex] = useState(getIndexFromURL(quotes, match.excerpt));
+  console.log("I'm the home page")
+  const [quoteIndex, setQuoteIndex] = useState(generateRandomIndex(quotes));
   const [quoteOpacity, setQuoteOpacity] = useState('1');
   const { quote, author, speaker, source, topic } = quotes[quoteIndex];
-
-  const nextQuote = makeURLString(quotes, generateRandomIndex(quotes));
 
   const transitionToRandomQuote = () => {
     setQuoteOpacity('0');
     setTimeout(()=>{
-      setQuoteIndex(getIndexFromURL(quotes, nextQuote));
+      setQuoteIndex(generateRandomIndex(quotes));
     },500);
     setTimeout(()=>{
       setQuoteOpacity('1')
@@ -80,7 +77,7 @@ export const BlockQuote = ({ quotes, buttons, landing }) => {
           className="button-bar__button button-bar__button--hover"
           id="new-quote" 
           onClick={transitionToRandomQuote}
-          to={`/${nextQuote}`}>
+          to={`/${makeURLString(quotes, generateRandomIndex(quotes))}`}>
             New Quote
         </Link>
       </Divider>
